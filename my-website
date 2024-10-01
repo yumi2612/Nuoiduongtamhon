@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khảo sát mức độ ảnh hưởng của mạng xã hội</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Khảo sát mức độ ảnh hưởng của mạng xã hội</h1>
+        <form id="survey-form">
+            <div class="question">
+                <label>Tôi thường xuyên so sánh bản thân với người khác trên mạng xã hội.</label>
+                <input type="radio" name="q1" value="1"> 1
+                <input type="radio" name="q1" value="2"> 2
+                <input type="radio" name="q1" value="3"> 3
+                <input type="radio" name="q1" value="4"> 4
+                <input type="radio" name="q1" value="5"> 5
+            </div>
+            <!-- Các câu hỏi khác nếu cần -->
+            <button type="button" onclick="calculateScore()">Hoàn thành</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            var totalScore = 0;
+            var radios = document.getElementsByName('q1');
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    totalScore += parseInt(radios[i].value);
+                }
+            }
+
+            var resultText = "Tổng điểm của bạn là " + totalScore + ".";
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
